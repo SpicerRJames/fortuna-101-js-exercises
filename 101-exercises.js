@@ -1,10 +1,10 @@
 "use strict"; // leave this line here :)
 
 // Keep this function definition in order to test expected vs. actual results
-const assert = function(actual, expected, message = "") {
+const assert = function (actual, expected, message = "") {
 
     // This compares primitive values and collections. If they differ, throw an error.
-    if(JSON.stringify(actual) !== JSON.stringify(expected)) {
+    if (JSON.stringify(actual) !== JSON.stringify(expected)) {
         console.error('[assert] expected:    ' + expected)
         console.error('[assert] instead got: ' + actual)
         throw Error("Assert failed in " + message);
@@ -30,15 +30,16 @@ function addToDone(message) {
 // Example problem setup: Create a variable named doingJSRightNow and assign it the boolean true.
 // The line below creates the variable named doingJSRightNow and assigns the boolean value true
 // To complete Exercise #0, uncomment the following line of JS
-// var doingJSRightNow = true
+var doingJSRightNow = true;
 
 // The lines below will test your answer. If you see an error, then it means that your answer is incorrect or incomplete.
-assert(doingJSRightNow, true, "Exercise 0"); 
+assert(doingJSRightNow, true, "Exercise 0");
 addToDone("Exercise 0 is correct");
 
 
 //  Exercise 1
 // On the line below, create a variable named onMarsRightNow and assign it the boolean value of false
+var onMarsRightNow = false;
 
 assert(onMarsRightNow, false, "Exercise 1");
 addToDone("Exercise 1 is correct.");
@@ -46,6 +47,7 @@ addToDone("Exercise 1 is correct.");
 // Exercise 2
 // Create a variable named fruits and assign it an array of strings containing the following fruits.
 // mango, banana, guava, kiwi, and strawberry.
+var fruits = ["mango", "banana", "guava", "kiwi", "strawberry"];
 
 assert(fruits, ["mango", "banana", "guava", "kiwi", "strawberry"], "Exercise 2");
 addToDone("Exercise 2 is correct.");
@@ -53,6 +55,7 @@ addToDone("Exercise 2 is correct.");
 //  Exercise 3
 //  Create a variable named vegetables and assign it an array of fruits containing the following vegetable names as strings: 
 //  eggplant, broccoli, carrot, cauliflower, and zucchini
+var vegetables = ["eggplant", "broccoli", "carrot", "cauliflower", "zucchini"];
 
 assert(vegetables, ["eggplant", "broccoli", "carrot", "cauliflower", "zucchini"], "Exercise 3");
 addToDone("Exercise 3 is correct.");
@@ -60,6 +63,7 @@ addToDone("Exercise 3 is correct.");
 
 // Exercise 4
 // Create a variable named numbers and assign it an array of numbers, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 assert(numbers, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "Exercise 4");
 addToDone("Exercise 4 is correct.");
@@ -68,6 +72,7 @@ addToDone("Exercise 4 is correct.");
 // Exercise 5
 // Add the string "tomato" to the end of the fruits array. 
 // *Hint* Recommend finding and using a built-in JS operation to add to an array rather than recreating the array.
+fruits.push("tomato");
 
 assert(fruits, ["mango", "banana", "guava", "kiwi", "strawberry", "tomato"], "Exercise 5");
 addToDone("Exercise 5 is correct");
@@ -75,32 +80,33 @@ addToDone("Exercise 5 is correct");
 // Exercise 6
 // add the string "tomato" onto the end of the vegetables array. 
 // Recommend using the built-in JS operation to add to an array.
+vegetables.push("tomato");
 
-
-assert(vegetables,["eggplant", "broccoli", "carrot", "cauliflower", "zucchini", "tomato"], "Exercise 6");
+assert(vegetables, ["eggplant", "broccoli", "carrot", "cauliflower", "zucchini", "tomato"], "Exercise 6");
 addToDone("Exercise 6 is correct")
 
 
 // Exercise 7
 // Given the array of numbers defined below, reverse the array of numbers that you created above. 
 var someNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
+someNumbers.reverse();
 
 assert(someNumbers, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1], "Exercise 7")
 addToDone("Exercise 7 is correct")
 
 
-
 // Exercise 8
 // Sort the vegetables in alphabetical order. Recommend finding a way to sort the array with a built-in method
+vegetables.sort();
 
 assert(vegetables, ['broccoli', 'carrot', 'cauliflower', 'eggplant', 'tomato', 'zucchini'], "Exercise 8")
 addToDone("Exercise 8 is correct.")
 
 
-
 // Exercise 9
 // Write the code necessary to sort the fruits in reverse alphabetical order
+var sortFruits = fruits.sort();
+sortFruits.reverse();
 
 assert(fruits, ['tomato', 'strawberry', 'mango', 'kiwi', 'guava', 'banana'], "Exercise 9")
 addToDone("Exercise 9 is correct.")
@@ -110,6 +116,7 @@ addToDone("Exercise 9 is correct.")
 // Write the code necessary to produce a single array that holds all fruits then all vegetables in the order as they were sorted above.
 // Assign the result to a variable named fruitsAndVeggies. 
 // *hint* the search engine search here would be "how to combine two arrays in JavaScript", for example.
+var fruitsAndVeggies = fruits.concat(vegetables);
 
 assert(fruitsAndVeggies, ['tomato', 'strawberry', 'mango', 'kiwi', 'guava', 'banana', 'broccoli', 'carrot', 'cauliflower', 'eggplant', 'tomato', 'zucchini'], "Exercise 10")
 addToDone("Exercise 10 is correct")
@@ -117,7 +124,7 @@ addToDone("Exercise 10 is correct")
 // This function generates a random number that is both positive and even
 function randomPositiveEvenNumber() {
     var randomNumber = Math.ceil(Math.random() * 100) + 10;
-    if(randomNumber % 2 !== 0) {
+    if (randomNumber % 2 !== 0) {
         return randomPositiveEvenNumber()
     }
 
@@ -127,7 +134,7 @@ function randomPositiveEvenNumber() {
 // this function generates a random number that is both positive and odd
 function randomPositiveOddNumber() {
     var randomNumber = Math.ceil(Math.random() * 100) + 10;
-    if(randomNumber % 2 === 0) {
+    if (randomNumber % 2 === 0) {
         return randomPositiveOddNumber();
     }
 
@@ -137,7 +144,7 @@ function randomPositiveOddNumber() {
 // this function generates a random number that is both negative and even.
 function randomNegativeEvenNumber() {
     var randomNumber = Math.ceil(Math.random() * -100) - 10;
-    if(randomNumber % 2 === 0) {
+    if (randomNumber % 2 === 0) {
         return randomNumber;
     }
 
@@ -147,7 +154,7 @@ function randomNegativeEvenNumber() {
 // this function generates a random number that is both negative and odd.
 function randomNegativeOddNumber() {
     var randomNumber = Math.ceil(Math.random() * -100) - 10;
-    if(randomNumber % 2 === 0) {
+    if (randomNumber % 2 === 0) {
         return randomNegativeOddNumber();
     }
 
@@ -189,10 +196,8 @@ assert(plusTwo(-2), 0, "-2 plus 2 is zero")
 assert(plusTwo(0), 2, "zero plus 2 is two")
 
 
-
 // Exercise 11
 // Write a function definition for a function named addOne that takes in a number and returns that number plus one
-
 
 
 assert(addOne(2), 3, "Exercise 11");
@@ -206,7 +211,6 @@ addToDone("Exercise 11 is correct.")
 // Write a function definition named isPositive that takes in a number and returns true or false if that number is positive.
 
 
-
 assert(isPositive(positiveOddNumber), true, "Exercise 12");
 assert(isPositive(positiveEvenNumber), true, "Exercise 12");
 assert(isPositive(negativeOddNumber), false, "Exercise 12");
@@ -216,7 +220,6 @@ addToDone("Exercise 12 is correct.")
 
 // Exercise 13
 // Write a function definition named isNegative that takes in a number and returns true or False if that number is negative.
-
 
 
 assert(isNegative(positiveOddNumber), false, "Exercise 13");
@@ -262,7 +265,6 @@ addToDone("Exercise 16 is correct.")
 // Write a function definition named isPositiveOdd that takes in a number and returns true or false if the value is both greater than zero and odd
 
 
-
 assert(isPositiveOdd(3), true, "Exercise 17");
 assert(isPositiveOdd(positiveOddNumber), true, "Exercise 17");
 assert(isPositiveOdd(positiveEvenNumber), false, "Exercise 17");
@@ -274,7 +276,7 @@ addToDone("Exercise 17 is correct.")
 // Exercise 18
 // Write a function definition named isPositiveEven that takes in a number and returns true or false if the value is both greater than zero and even
 
-assert(isPositiveEven(4), true, "Exercise 18" );
+assert(isPositiveEven(4), true, "Exercise 18");
 assert(isPositiveEven(positiveOddNumber), false, "Exercise 18");
 assert(isPositiveEven(positiveEvenNumber), true, "Exercise 18");
 assert(isPositiveEven(negativeOddNumber), false, "Exercise 18");
@@ -285,7 +287,7 @@ addToDone("Exercise 18 is correct.")
 // Exercise 19
 // Write a function definition named isNegativeOdd that takes in a number and returns true or false if the value is both less than zero and odd.
 
-assert(isNegativeOdd(-3), true, "Exercise 19" );
+assert(isNegativeOdd(-3), true, "Exercise 19");
 assert(isNegativeOdd(positiveOddNumber), false, "Exercise 19");
 assert(isNegativeOdd(positiveEvenNumber), false, "Exercise 19");
 assert(isNegativeOdd(negativeOddNumber), true, "Exercise 19");
@@ -296,13 +298,12 @@ addToDone("Exercise 19 is correct.")
 // Exercise 20
 // Write a function definition named isNegativeEven that takes in a number and returns true or false if the value is both less than zero and even.
 
-assert(isNegativeEven(-4), true, "Exercise 20" );
+assert(isNegativeEven(-4), true, "Exercise 20");
 assert(isNegativeEven(positiveOddNumber), false, "Exercise 20");
 assert(isNegativeEven(positiveEvenNumber), false, "Exercise 20");
 assert(isNegativeEven(negativeOddNumber), false, "Exercise 20");
 assert(isNegativeEven(negativeEvenNumber), true, "Exercise 20");
 addToDone("Exercise 20 is correct.")
-
 
 
 // Exercise 21
@@ -317,7 +318,6 @@ assert(half(negativeEvenNumber), negativeEvenNumber / 2, "Exercise 21");
 addToDone("Exercise 21 is correct.")
 
 
-
 // Exercise 22
 // Write a function definition named double that takes in a number and returns double the provided number.
 
@@ -328,7 +328,6 @@ assert(double(positiveEvenNumber), positiveEvenNumber * 2, "Exercise 22");
 assert(double(negativeOddNumber), negativeOddNumber * 2, "Exercise 22");
 assert(double(negativeEvenNumber), negativeEvenNumber * 2, "Exercise 22");
 addToDone("Exercise 22 is correct.")
-
 
 
 // Exercise 23
@@ -343,7 +342,6 @@ assert(triple(negativeEvenNumber), negativeEvenNumber * 3, "Exercise 23");
 addToDone("Exercise 23 is correct.")
 
 
-
 // Exercise 24
 // Write a function definition named reverseSign that takes in a number and returns the provided number but with the sign reversed.
 
@@ -354,7 +352,6 @@ assert(reverseSign(positiveEvenNumber), positiveEvenNumber * -1, "Exercise 24");
 assert(reverseSign(negativeOddNumber), negativeOddNumber * -1, "Exercise 24");
 assert(reverseSign(negativeEvenNumber), negativeEvenNumber * -1, "Exercise 24");
 addToDone("Exercise 24 is correct.")
-
 
 
 // Exercise 25
@@ -369,7 +366,6 @@ assert(absoluteValue(negativeEvenNumber), negativeEvenNumber * -1, "Exercise 25"
 addToDone("Exercise 25 is correct.")
 
 
-
 // Exercise 26
 // Write a function definition named isMultipleOfThree that takes in a number and returns true or false if the number is evenly divisible by 3.
 
@@ -379,8 +375,6 @@ assert(isMultipleOfThree(9), true, "Exercise 26");
 assert(isMultipleOfThree(4), false, "Exercise 26");
 assert(isMultipleOfThree(10), false, "Exercise 26");
 addToDone("Exercise 26 is correct.")
-
-
 
 
 // Exercise 27
@@ -394,7 +388,6 @@ assert(isMultipleOfFive(10), true, "Exercise 27");
 addToDone("Exercise 27 is correct.")
 
 
-
 // Exercise 28
 // Write a function definition named isMultipleOfBothThreeAndFive that takes in a number and returns true or false if the number is evenly divisible by both 3 and 5.
 
@@ -404,8 +397,6 @@ assert(isMultipleOfBothThreeAndFive(3), false, "Exercise 28");
 assert(isMultipleOfBothThreeAndFive(9), false, "Exercise 28");
 assert(isMultipleOfBothThreeAndFive(4), false, "Exercise 28");
 addToDone("Exercise 28 is correct.")
-
-
 
 
 // Exercise 29
@@ -418,7 +409,6 @@ assert(square(positiveOddNumber), positiveOddNumber * positiveOddNumber, "Exerci
 addToDone("Exercise 29 is correct.")
 
 
-
 // Exercise 30
 // Write a function definition named add that takes in two numbers and returns the sum.
 
@@ -427,7 +417,6 @@ assert(add(3, 2), 5, "Exercise 30");
 assert(add(10, -2), 8, "Exercise 30");
 assert(add(5, 7), 12, "Exercise 30");
 addToDone("Exercise 30 is correct.")
-
 
 
 // Exercise 31
@@ -440,7 +429,6 @@ assert(cube(positiveOddNumber), positiveOddNumber * positiveOddNumber * positive
 addToDone("Exercise 31 is correct.")
 
 
-
 // Exercise 32
 // Write a function definition named squareRoot that takes in a number and returns the square root of the provided number
 
@@ -449,8 +437,6 @@ assert(squareRoot(4), 2.0, "Exercise 32");
 assert(squareRoot(64), 8.0, "Exercise 32");
 assert(squareRoot(81), 9.0, "Exercise 32");
 addToDone("Exercise 32 is correct.")
-
-
 
 
 // Exercise 33
@@ -463,7 +449,6 @@ assert(subtract(12, 2), 10, "Exercise 33");
 addToDone("Exercise 33 is correct.")
 
 
-
 // Exercise 34
 // Write a function definition named multiply that takes in two numbers and returns the first times the second argument.
 
@@ -471,7 +456,6 @@ assert(multiply(2, 1), 2, "Exercise 34");
 assert(multiply(3, 5), 15, "Exercise 34");
 assert(multiply(5, 2), 10, "Exercise 34");
 addToDone("Exercise 34 is correct.")
-
 
 
 // Exercise 35
@@ -503,7 +487,6 @@ assert(remainder(7, 5), 2, "Exercise 37");
 addToDone("Exercise 37 is correct.")
 
 
-
 // Exercise 38
 // Write a function definition named sumOfSquares that takes in two numbers, squares each number, then returns the sum of both squares.
 
@@ -511,7 +494,6 @@ assert(sumOfSquares(3, 2), 13, "Exercise 38");
 assert(sumOfSquares(5, 2), 29, "Exercise 38");
 assert(sumOfSquares(2, 4), 20, "Exercise 38");
 addToDone("Exercise 38 is correct.")
-
 
 
 // Exercise 39
@@ -535,7 +517,6 @@ assert(areaOfRectangle(5.3, 10.3), 54.59, "Exercise 40");
 addToDone("Exercise 40 is correct.")
 
 
-
 // Exercise 41
 // Write a function definition named areaOfCircle that takes in a number representing a circle's radius and returns the area of the circle
 
@@ -553,7 +534,6 @@ assert(circumference(3), 18.84955592153876, "Exercise 42");
 assert(circumference(5), 31.41592653589793, "Exercise 42");
 assert(circumference(7), 43.982297150257104, "Exercise 42");
 addToDone("Exercise 42 is correct.")
-
 
 
 // Exercise 43
@@ -636,8 +616,6 @@ assert(first(["JS", "is", "awesome"]), "JS", "Exercise 50");
 addToDone("Exercise 50 is correct.")
 
 
-
-
 // Exercise 51
 // Write a function definition named second that takes in sequence and returns the second value of that sequence.
 
@@ -713,7 +691,6 @@ assert(firstAndLast(["strawberry", "kiwi", "mango", "guava"]), ["strawberry", "g
 addToDone("Exercise 58 is correct.")
 
 
-
 // Exercise 59
 // Write a function definition named firstToLast that takes in sequence and returns the sequence with the first value moved to the end of the sequence.
 
@@ -721,7 +698,6 @@ assert(firstToLast([1, 2, 3, 4]), [2, 3, 4, 1], "Exercise 59");
 assert(firstToLast(["JS", "is", "awesome"]), ["is", "awesome", "JS"], "Exercise 59");
 assert(firstToLast(["strawberry", "kiwi", "mango", "guava"]), ["kiwi", "mango", "guava", "strawberry"], "Exercise 59");
 addToDone("Exercise 59 is correct.")
-
 
 
 // Exercise 60
@@ -733,7 +709,6 @@ assert(sumAll([0, 5, 6]), 11, "Exercise 60");
 addToDone("Exercise 60 is correct.")
 
 
-
 //  Exercise 61
 //  Write a function definition named mean that takes in sequence of numbers and returns the average value
 
@@ -741,7 +716,6 @@ assert(mean([1, 2, 3, 4]), 2.5, "Exercise 61");
 assert(mean([3, 3, 3]), 3, "Exercise 61");
 assert(mean([1, 5, 6]), 4, "Exercise 61");
 addToDone("Exercise 61 is correct.")
-
 
 
 // Exercise 62
@@ -783,8 +757,6 @@ assert(getHighestNumber([5, 1, 2, 4, 9]), 9, "Exercise 65");
 addToDone("Exercise 65 is correct.")
 
 
-
-
 // Exercise 66
 // Write a function definition named getSmallestNumber that takes in sequence of numbers and returns the smallest number.
 
@@ -802,7 +774,6 @@ assert(onlyOddNumbers([1, 2, 3]), [1, 3], "Exercise 67");
 assert(onlyOddNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-5, -3, -1, 1, 3, 5], "Exercise 67");
 assert(onlyOddNumbers([-4, -3, 1]), [-3, 1], "Exercise 67");
 addToDone("Exercise 67 is correct.")
-
 
 
 // Exercise 68
@@ -832,7 +803,6 @@ assert(onlyNegativeNumbers([-4, -3, 1]), [-4, -3], "Exercise 70");
 addToDone("Exercise 70 is correct.");
 
 
-
 // Exercise 71
 // Write a function definition named hasEvens that takes in sequence of numbers and returns true if there are any even numbers in the sequence
 
@@ -843,14 +813,13 @@ assert(hasEvens([]), false, "Exercise 71");
 addToDone("Exercise 71 is correct.");
 
 
-
 // Exercise 72
 // Write a function definition named countEvens that takes in sequence of numbers and returns the number of even numbers
 
 assert(countEvens([1, 2, 3]), 1, "Exercise 72");
 assert(countEvens([2, 5, 6]), 2, "Exercise 72");
 assert(countEvens([3, 3, 3]), 0, "Exercise 72");
-assert(countEvens([5, 6, 7, 8] ), 2, "Exercise 72");
+assert(countEvens([5, 6, 7, 8]), 2, "Exercise 72");
 addToDone("Exercise 72 is correct.")
 
 
@@ -980,7 +949,6 @@ assert(flatten([["tomato", "mango", "kiwi"], ["eggplant", "broccoli"]]), ["tomat
 addToDone("Exercise 85 is correct.")
 
 
-
 // Exercise 86
 // Write a function definition named addOneToArray that adds one to every number in an array
 
@@ -1038,7 +1006,6 @@ assert(getPrice(book), 36.99, "Exercise 89");
 addToDone("Exercise 89 is complete.")
 
 
-
 // Exercise 90
 // Write a function named getBookAuthor that takes in a object (the above declared book variable) and returns the author's name
 
@@ -1081,7 +1048,6 @@ assert(getNumberOfBooks(books), 4, "Exercise 91");
 addToDone("Exercise 91 is complete.")
 
 
-
 // Exercise 92
 // Write a function named totalOfBookPrices that takes in a array of objects and returns the sum total of all the book prices added together
 
@@ -1107,7 +1073,6 @@ assert(highestPriceBook(books), {
 }, "Exercise 94");
 
 addToDone("Exercise 94 is complete")
-
 
 
 // Exercise 95
@@ -1163,14 +1128,12 @@ assert(getTaxRate(shoppingCart), .08, "Exercise 96");
 addToDone("Exercise 96 is complete")
 
 
-
 // Exercise 97
 // Write a function named numberOfItemTypes that takes in the shopping cart as input and returns the number of unique item types in the shopping cart. 
 // We're not yet using the quantity of each item, but rather focusing on determining how many different types of items are in the cart.
 
 assert(numberOfItemTypes(shoppingCart), 5, "Exercise 97");
 addToDone("Exercise 97 is complete.")
-
 
 
 // Exercise 98
@@ -1181,14 +1144,12 @@ assert(totalNumberOfItems(shoppingCart), 17, "Exercise 98");
 addToDone("Exercise 98 is complete.")
 
 
-
 // Exercise 99
 // Write a function named getAverageItemPrice that takes in the shopping cart as an input and returns the average of all the item prices.
 // Hint - This should determine the total price divided by the number of types of items. This does not account for each item type's quantity.\
 
 assert(getAverageItemPrice(shoppingCart), 2.1420000000000003, "Exercise 99");
 addToDone("Exercise 99 is complete.")
-
 
 
 // Exercise 100
