@@ -3,7 +3,7 @@
 ## Instructions for Students
 In order to submit your 101-JS exercises, you'll need to follow these guidelines:
 1. Clone this repository to your laptop.
-2. Create a branch, and name it using this format: firstname_lastname (*i.e. casey_friday*)
+2. Create a branch, and name it using this format: firstname-lastname (*i.e. casey-friday*)
 
 **This screenshot shows how to create and push your branch, once you have cloned the project, and changed into the project's root directory.**
 ![creating a branch](img/create_branch.jpg)
