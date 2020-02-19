@@ -1757,7 +1757,17 @@ addToDone("Exercise 93 is complete.")
 // Hint: Much like sometimes start functions with a variable set to zero, you may want to create a object with the price set to zero to compare to each object's price in the array
 
 function highestPriceBook(value){
-
+ var testBook = {
+     "title": "Who Cares?",
+     "price": 0.01,
+     "author": "That Guy"
+ }
+ for(var i = 0; i < value.length; i++){
+     if(testBook.price < value[i].price){
+         testBook = value[i];
+     }
+ }
+ return testBook;
 }
 
 assert(highestPriceBook(books), {
@@ -1774,6 +1784,19 @@ addToDone("Exercise 94 is complete")
 // Write a function called lowestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the lowest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero or float('inf'), you may want to create a object with the price set to float('inf') to compare to each object in the array
 
+function lowestPriceBook(value){
+    var testBook = {
+        "title": "Who Cares?",
+        "price": 33.99,
+        "author": "That Guy"
+    }
+    for(var i = 0; i < value.length; i++){
+        if(testBook.price > value[i].price){
+            testBook = value[i];
+        }
+    }
+    return testBook;
+}
 
 assert(lowestPriceBook(books), {
     "title": "Weapons of Math Destruction",
@@ -1819,6 +1842,10 @@ const shoppingCart = {
 // Write a function named getTaxRate that takes in the above shopping cart as input and returns the tax rate.
 // Hint: How do you access a key's value on a object? The tax rate is one key of the entire shoppingCart object.
 
+function getTaxRate(value){
+    return value.tax;
+}
+
 assert(getTaxRate(shoppingCart), .08, "Exercise 96");
 addToDone("Exercise 96 is complete")
 
@@ -1827,6 +1854,10 @@ addToDone("Exercise 96 is complete")
 // Exercise 97
 // Write a function named numberOfItemTypes that takes in the shopping cart as input and returns the number of unique item types in the shopping cart.
 // We're not yet using the quantity of each item, but rather focusing on determining how many different types of items are in the cart.
+
+function numberOfItemTypes(value){
+    return value.items.length;
+}
 
 assert(numberOfItemTypes(shoppingCart), 5, "Exercise 97");
 addToDone("Exercise 97 is complete.")
@@ -1837,14 +1868,31 @@ addToDone("Exercise 97 is complete.")
 // Write a function named totalNumberOfItems that takes in the shopping cart as input and returns the total number all item quantities.
 // This should return the sum of all of the quantities from each item type
 
+function totalNumberOfItems(value){
+    var total = 0;
+    for(var i = 0; i < value.items.length; i++){
+        total = total + value.items[i].quantity;
+    }
+    return total;
+}
+
 assert(totalNumberOfItems(shoppingCart), 17, "Exercise 98");
-addToDone("Exercise 98 is complete.")
+addToDone("Exercise 98 is complete.");
 
 
 
 // Exercise 99
 // Write a function named getAverageItemPrice that takes in the shopping cart as an input and returns the average of all the item prices.
 // Hint - This should determine the total price divided by the number of types of items. This does not account for each item type's quantity.\
+
+function getAverageItemPrice(value){
+    var total = 0;
+    for(var i = 0; i < value.items.length; i++){
+        total = total + value.items[i].price;
+    }
+    return (total / value.items.length)
+}
+
 
 assert(getAverageItemPrice(shoppingCart), 2.1420000000000003, "Exercise 99");
 addToDone("Exercise 99 is complete.")
@@ -1855,6 +1903,20 @@ addToDone("Exercise 99 is complete.")
 // Write a function named getAverageSpentPerItem that takes in the shopping cart and returns the average of summing each item's quanties times that item's price.
 // Hint: You may need to set an initial total price and total total quantity to zero, then sum up and divide that total price by the total quantity
 
+
+
+// ~~~~~~~~~~~~FIIIIXXXXXXX~~~~~~~
+
+function getAverageSpentPerItem(value) {
+    var totPrice = 0;
+    var totQuant = 0;
+    for (var i = 0; i < value.items.length; i++) {
+        totPrice = totPrice + (value.items[i].price * value.items[i].quantity);
+        totQuant = totQuant + value.items[i].quantity;
+    }
+    return (totPrice / totQuant);
+}
+
 assert(getAverageSpentPerItem(shoppingCart), 1.333529411764706, "Exercise 100");
 addToDone("Exercise 100 is complete.")
 
@@ -1864,6 +1926,22 @@ addToDone("Exercise 100 is complete.")
 // Be sure to do this as programmatically as possible.
 // Hint: Similarly to how we sometimes begin a function with setting a variable to zero, we need a starting place:
 // Hint: Consider creating a variable that is a object with the keys "price" and "quantity" both set to 0. You can then compare each item's price and quantity total to the one from "most"
+
+function mostSpentOnItem(value){
+    var testItem = {
+        "title": "Who Cares?",
+        "price": 0.01,
+        "quantity": 1
+    };
+    var testCost = (testItem.price * testItem.quantity);
+    for(var i = 0; i < value.items.length; i++){
+        if(testCost < (value.items[i].price * value.items[i].quantity)){
+            testCost = (value.items[i].price * value.items[i].quantity);
+            var costlyItem = value.items[i];
+        }
+    }
+    return costlyItem;
+}
 
 assert(mostSpentOnItem(shoppingCart), {
     "title": "chocolate",
